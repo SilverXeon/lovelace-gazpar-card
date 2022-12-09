@@ -534,6 +534,8 @@ export class GazparCard extends LitElement {
     if (config.showDailyHistory && data != null && data.length > 0) {
       // Keep the last 7 days.
       var today = config.asOfDate ? Date.parseDate(config.asOfDate)  : Date.today();
+      
+      var offset = today.getDate() - 5
      
       var filteredDates = data.slice().reverse().filter(item => Date.parseDate(item.time_period) >= today.addDays(-7))
 
